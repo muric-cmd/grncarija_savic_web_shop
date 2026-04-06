@@ -71,9 +71,7 @@ export default async function OrderConfirmationPage({
               <span className="font-semibold">Način plaćanja:</span>{' '}
               {order.paymentMethod === 'card'
                 ? 'Kartica online'
-                : order.paymentMethod === 'cash'
-                ? 'Pouzećem'
-                : 'Bankovni transfer'}
+                : 'Pouzećem'}
             </p>
             <p>
               <span className="font-semibold">Status:</span>{' '}
@@ -110,15 +108,6 @@ export default async function OrderConfirmationPage({
           </div>
         </div>
 
-        {order.paymentMethod === 'transfer' && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
-            <p className="text-yellow-800">
-              <strong>Napomena:</strong> Molimo vas da izvršite bankovni transfer na
-              račun koji će vam biti poslat na email adresu. Porudžbina će biti
-              poslata nakon potvrde plaćanja.
-            </p>
-          </div>
-        )}
 
         <div className="space-x-4">
           <Link

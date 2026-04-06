@@ -18,43 +18,48 @@ export default function AdminNavbar() {
             <div className="flex space-x-4">
               <Link
                 href="/admin"
-                className={`px-3 py-2 rounded-md ${
-                  pathname === '/admin'
+                className={`px-3 py-2 rounded-md ${pathname === '/admin'
                     ? 'bg-clay-700'
                     : 'hover:bg-clay-700'
-                }`}
+                  }`}
               >
                 Pregled
               </Link>
               <Link
                 href="/admin/products"
-                className={`px-3 py-2 rounded-md ${
-                  pathname?.startsWith('/admin/products')
+                className={`px-3 py-2 rounded-md ${pathname?.startsWith('/admin/products')
                     ? 'bg-clay-700'
                     : 'hover:bg-clay-700'
-                }`}
+                  }`}
               >
                 Proizvodi
               </Link>
               <Link
                 href="/admin/orders"
-                className={`px-3 py-2 rounded-md ${
-                  pathname?.startsWith('/admin/orders')
+                className={`px-3 py-2 rounded-md ${pathname?.startsWith('/admin/orders')
                     ? 'bg-clay-700'
                     : 'hover:bg-clay-700'
-                }`}
+                  }`}
               >
                 Porudžbine
               </Link>
               <Link
                 href="/admin/categories"
-                className={`px-3 py-2 rounded-md ${
-                  pathname?.startsWith('/admin/categories')
+                className={`px-3 py-2 rounded-md ${pathname?.startsWith('/admin/categories')
                     ? 'bg-clay-700'
                     : 'hover:bg-clay-700'
-                }`}
+                  }`}
               >
                 Kategorije
+              </Link>
+              <Link
+                href="/admin/blog"
+                className={`px-3 py-2 rounded-md ${pathname?.startsWith('/admin/blog')
+                    ? 'bg-clay-700'
+                    : 'hover:bg-clay-700'
+                  }`}
+              >
+                Blog
               </Link>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { format } from 'date-fns'
 import { srLatn } from 'date-fns/locale'
+import DeleteBlogButton from './delete-blog-button'
 
 export default async function AdminBlogPage() {
     const posts = await prisma.post.findMany({
@@ -47,8 +48,8 @@ export default async function AdminBlogPage() {
                                 <td className="py-3 px-4">
                                     <span
                                         className={`px-2 py-1 rounded text-sm ${post.published
-                                                ? 'bg-green-100 text-green-800'
-                                                : 'bg-yellow-100 text-yellow-800'
+                                            ? 'bg-green-100 text-green-800'
+                                            : 'bg-yellow-100 text-yellow-800'
                                             }`}
                                     >
                                         {post.published ? 'Objavljeno' : 'U pripremi'}
@@ -57,13 +58,14 @@ export default async function AdminBlogPage() {
                                 <td className="py-3 px-4 text-clay-700">
                                     {format(new Date(post.createdAt), 'dd. MMM yyyy.', { locale: srLatn })}
                                 </td>
-                                <td className="py-3 px-4">
+                                <td className="py-3 px-4 space-x-3">
                                     <Link
                                         href={`/admin/blog/${post.id}`}
                                         className="text-clay-600 hover:text-clay-700 text-sm"
                                     >
                                         Izmeni
                                     </Link>
+                                    <DeleteBlogButton postId={post.id} postTitle={post.title} />
                                 </td>
                             </tr>
                         ))}
